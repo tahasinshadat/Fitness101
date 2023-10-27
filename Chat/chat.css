@@ -1,0 +1,262 @@
+body {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+nav a:hover {
+    color: white;
+    opacity: 0.5;
+}
+
+.brand-logo {
+    padding-left: 2vw !important;
+}
+
+@media (max-width: 992px) {
+    .brand-logo {
+        padding-left: 0;
+    }
+}
+
+.ROUND a {
+    border-radius: 25px !important;
+}
+
+/* ^ IN EVERY CSSS ^ */
+:root {
+    --degrees: 240deg;
+}
+
+#banner {
+    background: linear-gradient(var(--degrees), #2b2b2bef 47.5%, rgba(0, 0, 0, 0) 30%), url('../images/chat.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+    width: 100vw;
+    color: white;
+}
+
+.title {
+    margin-top: 25vh;
+    font-size: 100px;
+}
+
+.banner {
+    width: 100vw;
+}
+
+.flex {
+    display: flex;
+}
+
+.banner div:first-child {
+    width: 55vw;
+}
+
+.description {
+    margin-top: 22vh;
+    width: 30vw;
+    margin-left: 140px;
+}
+
+.description h2 {
+    font-size: 40px;
+}
+
+.description p {
+    font-size: 16px;
+}
+
+@media (max-width: 1200px) {
+
+    .description {
+        margin-top: 20vh;
+        margin-left: 140px;
+    }
+
+    .title {
+        margin-top: 25vh;
+        font-size: 80px;
+    }
+
+}
+
+@media (max-width: 1100px) {
+
+    :root {
+        --degrees: 0deg;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    .title {
+        margin-top: 10vh;
+        font-size: 100px;
+    }
+    
+    .banner div:first-child {
+        width: 100vw;
+    }
+    
+    .description {
+        margin-top: 20vh;
+        width: 100vw;
+        text-align: center;
+        margin-left: 0px;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .title {
+        font-size: 70px;
+    }
+
+    .description h2 {
+        font-size: 30px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .title {
+        font-size: 70px;
+    }
+
+    .description p {
+        font-size: 14px;
+    }
+
+}
+
+
+
+
+#ADD {
+    width: 75px;
+    height: 75px;
+    font-size: 75px;
+}
+
+.chat-card {
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    margin-left: 1.25rem !important;
+    margin-right: 1.25rem !important; 
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chat-header i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.chat-username {
+    margin: 0;
+    font-weight: 500;
+}
+
+.chat-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.chat-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.reply-thread {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+    padding-left: 40px; 
+    padding-right: 40px;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #ccc;
+    margin-top: 12px;
+    margin-right: 10px;
+}
+
+.reply-card {
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin-left: 20px; 
+}
+
+.reply-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.reply-arrow {
+    font-size: 40px;
+}
+
+.reply-username {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.modal {
+    max-width: 80%;
+    width: 80%;
+}
+
+.REPLY-BTN {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .input-field {
+        flex-direction: column;
+    }
+
+    .input-field .btn {
+        margin-top: 10px;
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    .reply-thread {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 20px;
+        padding-left: 0px; 
+        padding-right: 20px;
+    }
+
+    .main-content form {
+        padding: 0px !important;
+        margin: 10px !important;
+    }
+
+}

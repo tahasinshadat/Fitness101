@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home | Fitness101</title>
+
+    <!-- My CSS + Script -->
+    <link rel="stylesheet" href="explore.css">
+
+    <!-- Materialize Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Bootstrap Framework -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!--Import Google Icon Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/6a2a583ad9.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-dark">
+
+    <!-- NavBar -->
+    <nav class="nav-wrapper black">
+        <div>
+            <a href="#" class="brand-logo">Fitness 101</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="../Home/home.html" class="waves-effect waves-light px-5">Home</a></li>
+                <li><a href="#" class="waves-effect waves-light px-5">Explore</a></li>
+                <li><a href="../Chat/chat.html" class="waves-effect waves-light px-5">Chat</a></li>
+                <li><a href="../Nutrition/nutrition.html" class="waves-effect waves-light px-5">Nutrition</a></li>
+                <li><a href="../Dashboard/dashboard.html" class="waves-effect waves-light px-5">Dashboard</a></li>
+                <li><a href="../Account/account.html" class="btn-floating gray z-depth-0">
+                    <i class="material-icons">person</i>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- NavBar for medium and small screens -->
+    <ul class="sidenav" id="mobile-links">
+        <div class="container center py-5">
+            <a href="../Account/account.html" class="btn-floating btn-large gray z-depth-0">
+                <i class="large material-icons">person</i>
+            </a>
+        </div>
+        <li><a href="../Home/home.html">Home</a></li>
+        <li><a href="../Dashboard/dashboard.html">Dashboard</a></li>
+        <li><a href="#">Explore</a></li>
+        <li><a href="../Nutrition/nutrition.html">Nutrition</a></li>
+        <li><a href="../Chat/chat.html">Chat</a></li>
+    </ul>
+
+
+    <!-- Banner -->
+    <div id="banner">
+        <div class="flex banner">
+            <div class="center">
+                <h1 class="title blue-text">Explore</h1>
+            </div>
+            <div class="description">
+                <h2>Learn & Adjust</h2>
+                <p>
+                    Your fitness journey is an adventure to greatness. Just as a car's performance 
+                    improves with tuning, your path to fitness is about constant refinement. Enhance 
+                    your form, similar to a mechanic fine-tuning a high-performance car. Embrace 
+                    discovery, absorb guidance, and shape your body. Just as cars find potential 
+                    on open roads, exploration and exercise drive you with vigor and motivation. 
+                    Don't be afraid to try out something new, working out isn't a task, it's a choice. 
+                    Enjoy it.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container pt-2">
+        <form>
+            <div class="input-field col s6">
+                <i class="material-icons prefix left">search</i>
+                <input type="text" class="validate white-text" id="inputField">
+                <label for="userInput">Search for a new Exercise!</label>
+                <i class="material-icons prefix right">fitness_center</i>
+            </div>
+        </form>
+    </div>
+    <div id="output"></div>
+
+    <div class="center">
+
+        <div class="row">
+            <div class="col">
+                <button id="chest" class="btn muscle-btns white waves-effect">Chest</button>
+                <button id="bis" class="btn muscle-btns white waves-effect">Biceps</button>
+                <button id="tris" class="btn muscle-btns white waves-effect">Triceps</button>
+                <button id="delts" class="btn muscle-btns white waves-effect">Shoulders</button>
+                <button id="lats" class="btn muscle-btns white waves-effect">Back</button>
+                <button id="abs" class="btn muscle-btns white waves-effect">Core</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button id="quads" class="btn muscle-btns white waves-effect">Quads</button>
+                <button id="hams" class="btn muscle-btns white waves-effect">Hamstrings</button>
+                <button id="glutes" class="btn muscle-btns white waves-effect">Glutes</button>
+                <button id="calves" class="btn muscle-btns white">Calves</button>
+                <button id="upper-back" class="btn muscle-btns white waves-effect">UpperBack</button>
+                <button id="forearms" class="btn muscle-btns white waves-effect">Forearms</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row mx-5" id="workouts-container">
+        
+    </div>
+    
+    <!-- FOOTER / CONTACT -->
+    <footer class="page-footer indigo darken-3">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-12 col-md-5 mt-2">
+                    <h5 class="white-text">Help Fitness 101 Grow</h5>
+                    <p class="grey-text text-lighten-4">
+                        Contribute to the growth of Fitness 101! Your involvement can 
+                        make a significant impact on our platform. We highly value your 
+                        feedback and encourage you to share your thoughts. Additionally, 
+                        if you could spread the word about the app, we would be truly grateful.
+                    </p>
+                </div>
+
+                <div class="col-sm-12 col-md-5 mt-2">
+                    <h5 class="white-text">Join the Discussion</h5>
+                    <p class="grey-text text-lighten-4">
+                        Come and be a part of our dynamic community by joining our discussion forum. 
+                        Share your unique fitness journey, inspire fellow members, and immerse yourself 
+                        in a supportive environment. Together, let's pave the way to accomplishing our 
+                        fitness aspirations!
+                    </p>
+                    <a class="btn pink lighten-4 waves-effect waves-light m-1 px-4 mb-3" href="../Chat/chat.html">
+                        <span>Join Now</span>
+                        <i class="material-icons left">arrow_forward</i>
+                    </a>
+
+                </div>
+
+                <div class="col-sm-12 col-md-2 mt-2">
+                    <h5 class="white-text">Connect</h5>
+                    <ul class="ROUND">
+                        <li><a class="btn white-text btn-small blue waves-effect waves-light m-1 px-4" href="mailto:tahasinshadat@gmail.com">
+                            <span>Email</span>
+                            <i class="material-icons left">email</i>
+                        </a></li>
+
+                        <li><a class="btn white-text btn-small blue waves-effect waves-light m-1 px-4" href="https://github.com/tahasinshadat">
+                            <span>GitHub</span>
+                            <i class="left fa fa-github"></i>
+                        </a></li>
+
+                        <li><a class="btn white-text btn-small blue waves-effect waves-light m-1 px-4" href="https://www.linkedin.com/in/tahasin-shadat/">
+                            <span>LinkedIn</span>
+                            <i class="left fa fa-linkedin-square"></i>
+                        </a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-copyright indigo darken-4">
+            <div class="container">
+                © 2023 Tahasin Shadat
+                <a class="grey-text text-lighten-4 right" href="#!">Fitness 101</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="explore.js" type="module"></script>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.sidenav').sidenav();
+        })
+    </script>
+</body>
+</html>

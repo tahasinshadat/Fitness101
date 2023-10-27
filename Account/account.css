@@ -1,0 +1,72 @@
+body {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+nav a:hover {
+    color: white;
+    opacity: 0.5;
+}
+
+.brand-logo {
+    padding-left: 2vw !important;
+}
+
+@media (max-width: 992px) {
+    .brand-logo {
+        padding-left: 0;
+    }
+}
+
+.ROUND a {
+    border-radius: 25px !important;
+}
+
+/* ^ IN EVERY CSSS ^ */
+.account-icon-scale {
+    scale: 1.5;
+}
+
+.account-circle-scale {
+    scale: 3;
+}
+
+.sign-out-scale {
+    scale: 1.25;
+}
+
+.account-margins {
+    margin: 3rem;
+}
+
+.account-image-pfp {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    scale: 2; 
+    margin-top: -1rem;
+    margin-bottom: -2rem;
+}
+
+@media (max-width: 992px) {
+    .responsive-content {
+        text-align: center;
+    }
+    .account-margins {
+        margin: 2rem;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .account-margins {
+        margin: 1rem;
+    }
+}

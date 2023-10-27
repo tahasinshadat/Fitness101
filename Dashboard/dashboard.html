@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Fitness101</title>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+
+    <!-- Materialize Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Custom Bootstrap Framework To Allow Swipeable Tabs-->
+    <link href="node_modules/sass/main.css" rel="stylesheet">
+    <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--Import Google Icon Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/6a2a583ad9.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-dark">
+
+    <!-- NavBar -->
+    <nav class="nav-wrapper black">
+        <div>
+            <a href="#" class="brand-logo">Fitness 101</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="../Home/home.html" class="waves-effect waves-light px-5">Home</a></li>
+                <li><a href="../Explore/explore.html" class="waves-effect waves-light px-5">Explore</a></li>
+                <li><a href="../Chat/chat.html" class="waves-effect waves-light px-5">Chat</a></li>
+                <li><a href="../Nutrition/nutrition.html" class="waves-effect waves-light px-5">Nutrition</a></li>
+                <li><a href="#" class="waves-effect waves-light px-5">Dashboard</a></li>
+                <li><a href="../Account/account.html" class="btn-floating gray z-depth-0">
+                    <i class="material-icons">person</i>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- NavBar for medium and small screens -->
+    <ul class="sidenav" id="mobile-links">
+        <div class="container center py-5">
+            <a href="../Account/account.html" class="btn-floating btn-large gray z-depth-0">
+                <i class="large material-icons">person</i>
+            </a>
+        </div>
+        <li><a href="../Home/home.html">Home</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="../Explore/explore.html">Explore</a></li>
+        <li><a href="../Nutrition/nutrition.html">Nutrition</a></li>
+        <li><a href="../Chat/chat.html">Chat</a></li>
+    </ul>
+
+
+    <!-- Tab Buttons -->
+    <div>
+        <ul class="tabs bg-dark d-flex">
+            <li class="tab col s3"><a href="#sleep_tab">Sleep</a></li>
+            <li class="tab col s3"><a href="#diet_tab">Diet</a></li>
+            <li class="tab col s3"><a href="#fitness_tab">Fitness</a></li>
+            <li class="tab col s3"><a href="#overview_tab">Overview</a></li>
+        </ul>
+    </div>    
+
+    <!-- Overview Tab -->
+    <div id="overview_tab" class="col s12 bg-dark text-white text-center">
+        
+        <div class="row m-2 pt-2">
+
+            <div class="col-sm-12 col-md-4">
+                <div class="card fitness-bg">
+                    <div class="card-content">
+                        <span class="card-title m-0">Fitness</span>
+                        <canvas id="strength-chart" class="overview-charts"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <div class="card diet-bg">
+                    <div class="card-content">
+                        <span class="card-title m-0">Diet</span>
+                        <canvas id="weight-chart" class="overview-charts"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <div class="card sleep-bg">
+                    <div class="card-content">
+                        <span class="card-title m-0">Sleep</span>
+                        <canvas id="sleep-chart" class="overview-charts"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+        <div class="row m-2 pb-3">
+            <div class="col s12">
+                <div id="stats" class="card bg-light">
+                    <div class="card-content">
+                        <span class="card-title">General</span>
+                        <canvas id="general-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Fitness Tab -->
+    <div id="fitness_tab" class="col s12 bg-dark text-white text-center">
+        
+        <!-- Function Buttons -->
+        <div class="row m-2 pt-2">
+
+            <div class="col-sm-12 col-md-1"></div>
+
+            <div class="col-sm-12 col-md-4">
+                <div class="card fitness-bg hover-effect">
+                    <div class="card-content">
+                        <span class="card-title">Start A Workout</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-2"></div>
+
+            <div class="col-sm-12 col-md-4 hover-effect">
+                <div class="card fitness-bg">
+                    <div class="card-content">
+                        <span class="card-title">View Your Consistency</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-1"></div>
+
+        </div>
+    
+        <!-- Main Displays -->
+        <div class="row m-2 pb-3">
+
+            <div class="col-sm-12 col-md-6 d-flex align-items-stretch">
+                <div id="" class="card bg-light w-100">
+                    <div class="card-content">
+                        <span class="card-title">Previous Workouts</span>
+                        <p>show workout</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 d-flex align-items-stretch">
+                <div class="card bg-light favorite-exercises w-100">
+                    <div class="card-content">
+                        <span class="card-title">Your Favorite Exercises</span>
+                        <div class="row" id="favorite-exercises">
+                            <p class="text-center">API Request Reached Maximum Limit</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Function Buttons -->
+        <div class="row m-2 pt-2">
+
+            <div class="col-sm-12 col-md-4"></div>
+            <div class="col-sm-12 col-md-4">
+                <div class="card fitness-bg hover-effect">
+                    <div class="card-content">
+                        <span class="card-title">Get Your Schedule</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4"></div>
+            
+        </div>
+
+        <!-- Schedule Displays -->
+        <div class="row m-2 pt-2">
+
+            <div class="col-sm-12 col-md-1"></div>
+            <div class="col-sm-12 col-md-10">
+                <div class="card bg-light">
+                    <div class="card-content">
+                        <span class="card-title">View Saved Schedules</span>
+                        <div class="row" id="saved-schedules">
+                            <p class="text-center">API Request Reached Maximum Limit</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-1"></div>
+
+        </div>
+
+    </div>
+
+    <!-- Diet Tab -->
+    <div id="diet_tab" class="col s12 bg-dark text-center">
+
+        <!-- Charts -->
+        <div class="card diet-chart-bg m-2 pt-2 mx-3">
+            <div class="row">
+                <div id="No-Foods"></div>
+                <div class="col-sm-6 col-lg-3">
+                    <div>
+                        <canvas id="calories-graph"></canvas><br>
+                        <span id="calories-amt" class="card-title">Calories</span>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div>
+                        <canvas id="protein-graph"></canvas><br>
+                        <span id="protein-amt" class="card-title">Protein</span>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div>
+                        <canvas id="fat-graph"></canvas><br>
+                        <span id="fat-amt"class="card-title">Fat</span>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div>
+                        <canvas id="carbs-graph"></canvas><br>
+                        <span id="carb-amt" class="card-title">Carbohydrates</span>
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+
+        <!-- Function Buttons -->
+        <div class="row m-2 pt-2">
+
+            <div class="col-sm-12 col-md-1"></div>
+
+            <div class="col-sm-12 col-md-4">
+                <div id='log-meal-card' class="card diet-bg hover-effect">
+                    <div class="card-content">
+                        <span class="card-title">Log a Meal</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-2"></div>
+
+            <div class="col-sm-12 col-md-4">
+                <div id='log-weight-card' class="card diet-bg hover-effect">
+                    <div class="card-content">
+                        <span class="card-title">Log Your Weight</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-1"></div>
+
+        </div>
+    
+        <!-- Main Displays -->
+        <div class="row m-2 pb-3">
+
+            <div class="col-sm-12 col-md-6 d-flex align-items-stretch">
+                <div id="" class="card bg-light favorite-foods w-100">
+                    <div class="card-content">
+                        <span class="card-title">Meals Eaten Today</span>
+                        <div id="diet-previous-meals"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 d-flex align-items-stretch">
+                <div class="card bg-light favorite-foods w-100">
+                    <div class="card-content">
+                        <span class="card-title">Your Favorite Foods</span>
+                        <div class="row mx-3" id="favorite-foods">
+                            <p class="text-center">API Request Reached Maximum Limit</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Meal Modal -->
+        <div id="mealModal" class="modal">
+            <div class="modal-content">
+                <h4>Log a Meal</h4>
+                <div class="input-field">
+                    <input type="text" id="foodName" placeholder="Food Name">
+                    <label for="foodName">Food Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" id="calories" placeholder="Total Calories">
+                    <label for="calories">Total Calories</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" id="protein" placeholder="Protein (g)">
+                    <label for="protein">Protein (g)</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" id="fat" placeholder="Fat (g)">
+                    <label for="fat">Fat (g)</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" id="carbs" placeholder="Carbohydrates (g)">
+                    <label for="carbs">Carbohydrates (g)</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="modal-close waves-effect waves-red btn-flat">Cancel</a>
+                <a href="#" class="modal-close waves-effect waves-green btn-flat" id="logMealBtn">Log Meal</a>
+            </div>
+        </div>
+
+        <!-- Weight Modal -->
+        <div id="weightModal" class="modal">
+            <div class="modal-content">
+                <h4>Log Your Weight</h4>
+                <div class="weight-scale">
+                    <div class="scale-display">
+                        <div id="weightValue">0</div>
+                        <div class="unit">lbs</div>
+                    </div>
+                    <input type="number" id="weightInput" placeholder="Enter your weight in lbs">
+
+                    <input type="range" id="weightSlider" min="0" max="300" step="0.1">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="modal-close waves-effect waves-red btn-flat">Cancel</a>
+                <a href="#" class="modal-close waves-effect waves-green btn-flat" id="logWeightBtn">Log Weight</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sleep Tab -->
+    <div id="sleep_tab" class="col s12 bg-dark text-center">
+
+        <div class="row m-2 pt-2">
+
+            <div class="col-sm-12 col-md-6">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">Compare Your Sleep</div>
+                        <canvas id="sleep-bar-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+                <div id="log-sleep-card" class="card hover-effect">
+                    <div class="card-content">
+                        <div class="card-title">Log Your Sleep</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">Rest References / Goals</div>
+                        <canvas id="sleep-goals-bar-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Meditation -->
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div id="meditate">
+                    <div class="meditate-title m-3">
+                        <i class="material-icons center">camera</i>
+                        <span class="mx-4">Start Meditation</span>
+                        <i class="material-icons center">camera</i>
+                    </div>   
+                    <div class="card-content">
+                        <div class="input">
+                            <label for="breath-input">Select Time</label>
+
+                            <div class="select px-2">
+                                <select id="breath-input" name="breaths">
+                                    <option value="5">1 Minute</option>
+                                    <option value="14">3 Minutes</option>
+                                    <option value="24">5 minutes</option>
+                                    <option value="48">10 minutes</option>
+                                    <option value="72">15 minutes</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="circle-wrap m-3 my-5">
+                            <div class="circle-outline"></div>
+                            <div class="circle-progress"></div>
+                        </div>
+                        <p class="breaths m-4">Breaths Remaining: <span id="breath-text">5</span></p>
+                        <p class="instructions m-4">Are you ready to start breathing?</p>
+                        <button class="start m-2 btn blue">Begin</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sleep Log Modal -->
+        <div id="sleepModal" class="modal">
+            <div class="modal-content">
+                <h4>Log Your Sleep</h4>
+                <p>How many hours did you sleep?</p>
+                <div class="scale-display">
+                    <div id="sleepValue">0 Hours</div>
+                </div>
+                <div class="range-field">
+                    <input type="range" id="sleepInput" min="0" max="24" step="0.25">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-light btn btn-secondary">Close</a>
+                <a id="saveSleepBtn" href="#!" class="modal-close waves-effect waves-light btn btn-primary">Log Sleep</a>
+            </div>
+        </div>
+        
+    </div>
+
+    </div>
+    <!-- FOOTER / CONTACT -->
+    <footer class="page-footer indigo darken-3">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-12 col-md-5 mt-2">
+                    <h5 class="white-text">Help Fitness 101 Grow</h5>
+                    <p class="grey-text text-lighten-4">
+                        Contribute to the growth of Fitness 101! Your involvement can 
+                        make a significant impact on our platform. We highly value your 
+                        feedback and encourage you to share your thoughts. Additionally, 
+                        if you could spread the word about the app, we would be truly grateful.
+                    </p>
+                </div>
+
+                <div class="col-sm-12 col-md-5 mt-2">
+                    <h5 class="white-text">Join the Discussion</h5>
+                    <p class="grey-text text-lighten-4">
+                        Come and be a part of our dynamic community by joining our discussion forum. 
+                        Share your unique fitness journey, inspire fellow members, and immerse yourself 
+                        in a supportive environment. Together, let's pave the way to accomplishing our 
+                        fitness aspirations!
+                    </p>
+                    <a class="btn pink lighten-4 waves-effect waves-light m-1 px-4 mb-3" href="../Chat/chat.html">
+                        <span>Join Now</span>
+                        <i class="material-icons left">arrow_forward</i>
+                    </a>
+
+                </div>
+
+                <div class="col-sm-12 col-md-2 mt-2">
+                    <h5 class="white-text">Connect</h5>
+                    <ul class="ROUND">
+                        <li><a class="btn white-text btn-small blue waves-effect waves-light m-1 px-4" href="mailto:tahasinshadat@gmail.com">
+                            <span>Email</span>
+                            <i class="material-icons left">email</i>
+                        </a></li>
+
+                        <li><a class="btn white-text btn-small blue waves-effect waves-light m-1 px-4" href="https://github.com/tahasinshadat">
+                            <span>GitHub</span>
+                            <i class="left fa fa-github"></i>
+                        </a></li>
+
+                        <li><a class="btn white-text btn-small blue waves-effect waves-light m-1 px-4" href="https://www.linkedin.com/in/tahasin-shadat/">
+                            <span>LinkedIn</span>
+                            <i class="left fa fa-linkedin-square"></i>
+                        </a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-copyright indigo darken-4">
+            <div class="container">
+                © 2023 Tahasin Shadat
+                <a class="grey-text text-lighten-4 right" href="#!">Fitness 101</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="dashboard.js" type="module"></script>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+
+        $(document).ready(function() {
+            $('.sidenav').sidenav();
+        })
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let tabs = document.querySelector('.tabs');
+            let instance = M.Tabs.init(tabs);
+            instance.select('overview_tab');
+
+            let elems = document.querySelectorAll('select');
+            let instances = M.FormSelect.init(elems);
+        });
+
+        // Initialize the swipeable tabs
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     let tabs = document.querySelector('.tabs');
+        //     let instance = M.Tabs.init(tabs, { swipeable: true });
+        //     instance.select('overview_tab');
+
+        //     // Function to adjust the height of tab content based on children
+        //     function adjustTabContentHeight() {
+        //         const tabContent = document.querySelector('.tabs-content.carousel');
+        //         const tabChildren = Array.from(tabContent.children);
+                
+        //         // Find the maximum height among tab children
+        //         const maxHeight = tabChildren.reduce((max, child) => {
+        //             const childHeight = child.scrollHeight;
+        //             return childHeight > max ? childHeight : max;
+        //         }, 0);
+                
+        //         // Set the tab content height
+        //         tabContent.style.height = maxHeight + 'px';
+
+        //         // Calculate the extra space
+        //         const extraSpace = maxHeight - tabContent.clientHeight;
+        //         console.log(extraSpace);
+
+        //         // Apply the extra space as negative margin to the footer
+        //         const footer = document.querySelector('footer');
+        //         footer.style.marginTop = `-${extraSpace}px`;
+        //     }
+
+        //     // Call the function to adjust the height after a brief delay (adjust as needed)
+        //     setTimeout(adjustTabContentHeight, 100);
+        // });
+
+        // window.addEventListener('DOMContentLoaded', function() {
+        //     let tabs = document.querySelector('.tabs');
+        //     let instance = M.Tabs.init(tabs, { swipeable: true });
+        //     instance.select('overview_tab');
+
+        //     // Define tab heights
+        //     const tabHeights = {
+        //         'overview_tab': null,
+        //         'sleep_tab': null,
+        //         'fitness_tab': null,
+        //         'diet_tab': null
+        //     };
+
+        //     let activeTabId = 'overview_tab'; // Initialize with the default tab
+
+        //     function adjustTabContentHeight() {
+        //         const tabContent = document.querySelector('.tabs-content.carousel');
+
+        //         // Set the tab content height based on the currently active tab
+        //         const height = tabHeights[activeTabId] || 'auto';
+
+        //         if (height === null) {
+        //             // Use setTimeout to delay reading the clientHeight
+        //             setTimeout(function() {
+        //                 tabHeights[activeTabId] = document.getElementById(activeTabId).clientHeight + 'px';
+        //                 tabContent.style.height = tabHeights[activeTabId];
+        //             }, 100); // Adjust the delay as needed
+        //         } else {
+        //             tabContent.style.height = height;
+        //         }
+        //     }
+
+        //     // Listen for tab change events and update the activeTabId
+        //     tabs.addEventListener('click', function(event) {
+        //         if (event.target.tagName === 'A') {
+        //             activeTabId = event.target.getAttribute('href').substring(1); // Remove the "#" symbol
+        //             adjustTabContentHeight();
+        //         }
+        //     });
+
+        //     // Call the function to adjust the height initially
+        //     adjustTabContentHeight();
+        // });
+
+       
+       
+    </script>
+</body>
+</html>

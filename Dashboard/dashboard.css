@@ -1,0 +1,269 @@
+body {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+nav a:hover {
+    color: white;
+    opacity: 0.5;
+}
+
+.brand-logo {
+    padding-left: 2vw !important;
+}
+
+@media (max-width: 992px) {
+    .brand-logo {
+        padding-left: 0;
+    }
+}
+
+.ROUND a {
+    border-radius: 25px !important;
+}
+
+:root {
+    --Overview-Card-Height: 350px;
+    --Overview-General-Card-Height: 900px;
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/*                                                       OVERVIEW                                                    */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */ 
+#overview_tab .card {
+    height: var(--Overview-Card-Height);
+}
+
+#stats {
+    height: var(--Overview-General-Card-Height) !important;
+}
+
+.fitness-bg {
+    background: rgb(61,247,255);
+    background: linear-gradient(48deg, rgba(61,247,255,1) 0%, rgba(38,159,255,1) 80%, rgba(0,121,255,1) 100%);
+}
+
+.diet-bg {
+    background: rgb(138,255,0);
+    background: linear-gradient(48deg, rgba(138,255,0,1) 0%, rgba(53,255,38,1) 80%, rgba(23,223,26,1) 100%);
+}
+
+.sleep-bg {
+    background: rgb(255,0,91);
+    background: linear-gradient(48deg, rgba(255,0,91,1) 0%, rgba(255,38,166,1) 80%, rgba(255,0,224,1) 100%);
+}
+
+.overview-charts {
+    width: 100%;
+    height: calc(var(--Overview-Card-Height) - 65px) !important;
+    margin: 0px;
+    padding: 0px;
+}
+
+#general-chart {
+    height: calc(var(--Overview-General-Card-Height) - 65px) !important;
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/*                                                       FITNESS                                                     */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */ 
+.favorite-exercises {
+    max-height: 700px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#saved-schedules {
+    max-height: 600px;
+    overflow: auto;
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/*                                                        DIET                                                       */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */ 
+.favorite-foods {
+    max-height: 750px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.favorite-foods::-webkit-scrollbar {
+    width: 8px; /* You can adjust the width as needed */
+}
+
+.favorite-foods::-webkit-scrollbar-thumb {
+    background-color: rgb(179, 184, 179); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Adjust the border-radius as desired */
+}
+
+.favorite-foods::-webkit-scrollbar-track {
+    background-color: #ece9e9; /* Color of the scrollbar track */
+    border-radius: 10px; /* Adjust the border-radius to match the thumb */
+}
+
+.modal {
+    max-width: 85%;
+    width: 85%;
+}
+
+.diet-chart-bg {
+    background: rgb(179, 238, 179) !important;
+}
+
+.hover-effect:hover {
+    opacity: 0.7;
+}
+
+/* Weight Scale Modal */
+.weight-scale {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weight-scale input[type="number"] {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid #333;
+    background: transparent;
+    outline: none;
+}
+
+.scale-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.unit {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/*                                                        SLEEP                                                      */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+#meditate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("../images/meditate-bg.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+  
+#meditate label {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: white;
+    font-weight: 450;
+}
+
+.select {
+    background: white;
+    border-radius: 10px;
+}
+
+.circle-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+  
+.circle-outline {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 15px solid #f1f1f1;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+  
+.circle-progress {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: darkblue;
+    border-radius: 50%;
+    transition: 4s ease all;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.circle-grow {
+    transform: scale(5.2);
+}
+  
+.breaths {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 24px;
+}
+  
+.instructions {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.meditate-title {
+    font-size: 35px;
+}
+
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/*                                                      LOADING                                                      */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

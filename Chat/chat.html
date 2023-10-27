@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chat | Fitness101</title>
+
+    <!-- My CSS + Script -->
+    <link rel="stylesheet" href="chat.css">
+
+    <!-- Materialize Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Bootstrap Framework -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!--Import Google Icon Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/6a2a583ad9.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-dark">
+
+    <!-- NavBar -->
+    <nav class="nav-wrapper black">
+        <div>
+            <a href="#" class="brand-logo">Fitness 101</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="../Home/home.html" class="waves-effect waves-light px-5">Home</a></li>
+                <li><a href="../Explore/explore.html" class="waves-effect waves-light px-5">Explore</a></li>
+                <li><a href="#" class="waves-effect waves-light px-5">Chat</a></li>
+                <li><a href="../Nutrition/nutrition.html" class="waves-effect waves-light px-5">Nutrition</a></li>
+                <li><a href="../Dashboard/dashboard.html" class="waves-effect waves-light px-5">Dashboard</a></li>
+                <li><a href="../Account/account.html" class="btn-floating gray z-depth-0">
+                    <i class="material-icons">person</i>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- NavBar for medium and small screens -->
+    <ul class="sidenav" id="mobile-links">
+        <div class="container center py-5">
+            <a href="../Account/account.html" class="btn-floating btn-large gray z-depth-0">
+                <i class="large material-icons">person</i>
+            </a>
+        </div>
+        <li><a href="../Home/home.html">Home</a></li>
+        <li><a href="../Dashboard/dashboard.html">Dashboard</a></li>
+        <li><a href="../Explore/explore.html">Explore</a></li>
+        <li><a href="../Nutrition/nutrition.html">Nutrition</a></li>
+        <li><a href="#">Chat</a></li>
+    </ul>
+
+
+    <!-- Banner -->
+    <div id="banner">
+        <div class="flex banner">
+            <div class="center">
+                <h1 class="title">Connect</h1>
+            </div>
+            <div class="description">
+                <h2>Eat Well & Grow Well</h2>
+                <p>
+                    In your fitness journey, think of your body as a high-performance car and 
+                    food as its fuel. Without quality fuel, the car won't run efficiently or 
+                    at all. Similarly, without nourishing food, your body can't perform at its 
+                    best. Eating healthy isn't just a choice; it's the essential foundation for 
+                    reaching your fitness goals, providing the energy and nutrients needed to 
+                    unlock your full potential.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Trigger -->
+    <div class="container center py-4">
+        <a class="btn-floating pulse blue darken-2 modal-trigger" id="ADD" href="#messageModal">
+            <i class="material-icons left center" style="font-size:50px; margin-top: 17.5px;">add</i>
+        </a>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="messageModal" class="modal">
+        <div class="modal-header">
+            <h1 class="center p-1">Create a Thread</h1>
+        </div>
+        <div class="modal-content">
+            <form id="messageFormModal">
+                <div class="input-field mx-5">   
+                    <input type="text" class="validate black-text" id="thread-title" required>
+                    <label for="thread-title">Title / Topic</label>
+                </div>
+                <div class="input-field mx-5">
+                    <input type="text" class="validate black-text" id="thread-content" required>
+                    <label for="thread-content">Your Message / Thoughts</label>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="waves-effect waves-green btn blue" id="postBtn">Post</a>
+        </div>
+    </div>
+
+
+
+    <!-- Main Content -->
+    <div class="row">
+        <div class="col-lg-12" id="Thread-Body">
+
+            <!-- Model Structure -->
+            <!-- <div class="card mx-5 chat-card">
+                <div class="main-content">
+                    <div class="card-content">
+                        <div class="chat-header">
+                            <i class="material-icons">account_circle</i>
+                            <h4 class="chat-username">User</h4>
+                        </div>
+                        <div class="chat-message">
+                            <span class="card-title chat-title">Title</span>
+                            <p class="chat-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit atque accusamus eaque nobis perspiciatis illo asperiores, est ex consequatur, suscipit porro neque accusantium hic ut, repudiandae distinctio. Quidem, exercitationem veniam?</p>
+                        </div>    
+                        <hr>    
+                    </div>
+
+                    <div class="reply-thread">
+                        <div class="arrow"></div>
+                        <div class="reply-card blue">
+                            <div class="d-flex">
+                                <i class="material-icons">account_circle</i>
+                                <h5 class="reply-username">Your Username</h5>
+                            </div>
+                            <p class="reply-text black-text">This is a reply message Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>   
+                        </div>
+                    </div>
+                    <div class="reply-thread">
+                        <div class="arrow"></div>
+                        <div class="reply-card">
+                            <div class="d-flex">
+                                <i class="material-icons">account_circle</i>
+                                <h5 class="reply-username">Username</h5>
+                            </div>
+                            <p class="reply-text black-text">This is a reply message Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>   
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <form class="mx-5 px-5">
+                    <div class="input-field d-flex">
+                        <i class="material-icons prefix left">comment</i>
+                        <input type="text" class="validate black-text" id="reply">
+                        <label for="reply">Reply to </label>
+                        <button class="btn waves-effect waves-light red lighten-1 mx-1">reply></button>
+                    </div>
+                </form>
+            </div> -->
+        
+        </div>
+    </div>
+
+
+
+    <!-- Other design choices -->
+    <!-- Reply Thread -->
+    <!-- <div class="col-lg-12">
+        <div class="d-flex align-items-center">
+            <span class="reply-symbol grey-text m-5 my-2" style="font-size:100px;">&#10551;</span>
+            <div class="card mx-5 chat-card">
+                <div class="card-content">
+                    <div class="chat-header">
+                        
+                        <i class="material-icons">account_circle</i>
+                        <h4 class="chat-username">User</h4>
+                    </div>
+                    <div class="chat-message">
+                        <span class="card-title chat-title">Title</span>
+                        <p class="chat-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit atque accusamus eaque nobis perspiciatis illo asperiores, est ex consequatur, suscipit porro neque accusantium hic ut, repudiandae distinctio. Quidem, exercitationem veniam?</p>
+                    </div>           
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- My Thread -->
+    <!-- <div class="reply-thread">
+        <div class="arrow"></div>
+        <div class="reply-card blue">
+            <div class="d-flex">
+                <i class="material-icons">account_circle</i>
+                <h5 class="reply-username">Your Username</h5>
+            </div>
+            <p class="reply-text black-text">This is a reply message Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>   
+        </div>
+    </div> -->
+
+    <!-- My Thread -->
+    <!-- <div class="reply-thread">
+        <span class="mx-1 reply-arrow">&#10551;</span>
+        <div class="reply-card blue">
+            <div class="d-flex align-items-center">
+                <i class="material-icons">account_circle</i>
+                <h5 class="reply-username">Your Username</h5>
+            </div>
+            <p class="reply-text black-text mt-1">This is a reply message Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+    </div> -->
+
+
+
+    <!-- FOOTER / CONTACT -->
+    <footer class="page-footer indigo darken-3">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-12 col-md-5 mt-2">
+                    <h5 class="white-text">Help Fitness 101 Grow</h5>
+                    <p class="grey-text text-lighten-4">
+                        Contribute to the growth of Fitness 101! Your involvement can 
+                        make a significant impact on our platform. We highly value your 
+                        feedback and encourage you to share your thoughts. Additionally, 
+                        if you could spread the word about the app, we would be truly grateful.
+                    </p>
+                </div>
+
+                <div class="col-sm-12 col-md-5 mt-2">
+                    <h5 class="white-text">Join the Discussion</h5>
+                    <p class="grey-text text-lighten-4">
+                        Come and be a part of our dynamic community by joining our discussion forum. 
+                        Share your unique fitness journey, inspire fellow members, and immerse yourself 
+                        in a supportive environment. Together, let's pave the way to accomplishing our 
+                        fitness aspirations!
+                    </p>
+                    <a class="btn pink lighten-4 waves-effect waves-light m-1 px-4 mb-3" href="#">
+                        <span>Join Now</span>
+                        <i class="material-icons left">arrow_forward</i>
+                    </a>
+
+                </div>
+
+                <div class="col-sm-12 col-md-2 mt-2">
+                    <h5 class="white-text">Connect</h5>
+                    <ul class="ROUND">
+                        <li><a class="btn white-text btn-small blue waves-effect waves-light m-1 px-4" href="mailto:tahasinshadat@gmail.com">
+                            <span>Email</span>
+                            <i class="material-icons left">email</i>
+                        </a></li>
+
+                        <li><a class="btn white-text btn-small blue waves-effect waves-light m-1 px-4" href="https://github.com/tahasinshadat">
+                            <span>GitHub</span>
+                            <i class="left fa fa-github"></i>
+                        </a></li>
+
+                        <li><a class="btn white-text btn-small blue waves-effect waves-light m-1 px-4" href="https://www.linkedin.com/in/tahasin-shadat/">
+                            <span>LinkedIn</span>
+                            <i class="left fa fa-linkedin-square"></i>
+                        </a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-copyright indigo darken-4">
+            <div class="container">
+                © 2023 Tahasin Shadat
+                <a class="grey-text text-lighten-4 right" href="#!">Fitness 101</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="chat.js" type="module"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.sidenav').sidenav();
+        })
+    </script>
+    
+</body>
+</html>

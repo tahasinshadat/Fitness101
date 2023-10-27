@@ -1,0 +1,28 @@
+body {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+nav a:hover {
+    color: white;
+    opacity: 0.5;
+}
+
+.brand-logo {
+    padding-left: 2vw !important;
+}
+
+@media (max-width: 992px) {
+    .brand-logo {
+        padding-left: 0;
+    }
+}
+
+.ROUND a {
+    border-radius: 25px !important;
+}
+
+/* ^ IN EVERY CSSS ^ */
