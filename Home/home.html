@@ -9,9 +9,9 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="home.css">
 
-     <!-- Materialize Framework -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Materialize Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <!-- Bootstrap Framework -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/6a2a583ad9.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="bg-dark">
 
     <!-- NavBar -->
     <nav class="nav-wrapper black">
@@ -39,9 +39,12 @@
                 <li><a href="../Chat/chat.html" class="waves-effect waves-light px-5">Chat</a></li>
                 <li><a href="../Nutrition/nutrition.html" class="waves-effect waves-light px-5">Nutrition</a></li>
                 <li><a href="../Dashboard/dashboard.html" class="waves-effect waves-light px-5">Dashboard</a></li>
-                <li><a href="../Account/account.html" class="btn-floating gray z-depth-0">
-                    <i class="material-icons">person</i>
-                </a></li>
+                <li>
+                    <a href="../Account/account.html" class="btn-floating gray z-depth-0" id="account-pfp-link">
+                        <i class="material-icons" id="hide-if-pfp-exists-nav">person</i>
+                        <img src="" alt="Profile Picture" id="user-PFP-nav">
+                    </a> 
+                </li>
             </ul>
         </div>
     </nav>
@@ -49,8 +52,9 @@
     <!-- NavBar for medium and small screens -->
     <ul class="sidenav" id="mobile-links">
         <div class="container center py-5">
-            <a href="../Account/account.html" class="btn-floating btn-large gray z-depth-0">
-                <i class="large material-icons">person</i>
+            <a href="../Account/account.html" class="btn-floating btn-large gray z-depth-0" id="account-pfp-link-mobile">
+                <i class="large material-icons" id="hide-if-pfp-exists-nav-mobile">person</i>
+                <img src="" alt="Profile Picture" id="user-PFP-nav-mobile">
             </a>
         </div>
         <li><a href="#">Home</a></li>
@@ -60,10 +64,230 @@
         <li><a href="../Chat/chat.html">Chat</a></li>
     </ul>
 
-    <!-- Main Content -->
-    <div class="center">
-        <h1>Welcome to Fitness101!</h1>
+    <!-- Banner -->
+    <div id="banner">
+        <div class="flex banner">
+            <div class="center">
+                <h1 class="title white-text">Welcome</h1>
+            </div>
+            <div class="description">
+                <h2>Start Your Journey</h2>
+                <p>
+                    Embark on your fitness journey with us. Just as a skilled mechanic tunes a 
+                    high-performance car to perfection, we're here to help you fine-tune your 
+                    body and mind for peak performance. Whether you're a seasoned athlete or 
+                    just starting out, our app is your companion on the road to greatness. With 
+                    expert guidance, personalized workouts, and a supportive community, you'll 
+                    discover new heights of strength, endurance, and well-being. Get ready to 
+                    sweat, grow, and achieve your goals – your journey starts now.
+                </p>
+            </div>
+        </div>
     </div>
+
+    <!-- Main Content -->
+    <div class="center ">
+        <h1>Welcome to Fitness101!</h1>
+
+        <br>
+
+        <!-- Mission -->
+        <div class="white-text">
+            <h3 class="center">Our Mission.</h3>
+            <h1>Fight Obesity. Keep Society Healthy. Promote Self Improvement.</h1>
+            <!-- <h3>Thats it.</h3> -->
+        </div>
+
+        <br>
+
+        <!-- Why Us? -->
+        <div class="white-text">
+            <h2>Why Us?</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis excepturi sapiente hic? Quisquam praesentium saepe alias laborum nemo ratione, dignissimos culpa architecto beatae tempore facere sit similique vel sapiente eius.</p>
+        </div>
+
+        <br>
+
+        <section>
+            <h1 class="text-center text-white gradient-text">Legends Board</h1>
+
+            <div class="row m-5">
+
+                <div class="flipCard col-md-3">
+                    <div class="boxes">
+                        <div class="box front">
+                            <img src="../images/legend.webp" alt="" class="img-fluid rounded">
+                            <h2 class="my-2 gradient-text">Thor</h2>
+                        </div>
+                        <div class="box back rounded">
+                            <br><h2 class="gradient-text">Thor</h2><br>
+                            <h3 class="gradient-text">Description:</h3>
+                            <p class="m-3 gradient-text"><strong>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At quo hic et perferendis ex quis iure error, itaque possimus soluta eveniet sint beatae neque sed iste repellat est deleniti totam?
+                            </strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flipCard col-md-3">
+                    <div class="boxes">
+                        <div class="box front">
+                            <img src="../images/legend.webp" alt="" class="img-fluid rounded">
+                            <h2 class="my-2 gradient-text">Thor</h2>
+                        </div>
+                        <div class="box back rounded">
+                            <br><h2 class="gradient-text">Thor</h2><br>
+                            <h3 class="gradient-text">Description:</h3>
+                            <p class="m-3 gradient-text"><strong>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At quo hic et perferendis ex quis iure error, itaque possimus soluta eveniet sint beatae neque sed iste repellat est deleniti totam?
+                            </strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flipCard col-md-3">
+                    <div class="boxes">
+                        <div class="box front">
+                            <img src="../images/legend.webp" alt="" class="img-fluid rounded">
+                            <h2 class="my-2 gradient-text">Thor</h2>
+                        </div>
+                        <div class="box back rounded">
+                            <br><h2 class="gradient-text">Thor</h2><br>
+                            <h3 class="gradient-text">Description:</h3>
+                            <p class="m-3 gradient-text"><strong>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At quo hic et perferendis ex quis iure error, itaque possimus soluta eveniet sint beatae neque sed iste repellat est deleniti totam?
+                            </strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flipCard col-md-3">
+                    <div class="boxes">
+                        <div class="box front">
+                            <img src="../images/legend.webp" alt="" class="img-fluid rounded">
+                            <h2 class="my-2 gradient-text">Thor</h2>
+                        </div>
+                        <div class="box back rounded">
+                            <br><h2 class="gradient-text">Thor</h2><br>
+                            <h3 class="gradient-text">Description:</h3>
+                            <p class="m-3 gradient-text"><strong>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At quo hic et perferendis ex quis iure error, itaque possimus soluta eveniet sint beatae neque sed iste repellat est deleniti totam?
+                            </strong></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row m-5">
+
+                <div class="flipCard col-md-3">
+                    <div class="boxes">
+                        <div class="box front">
+                            <img src="../images/legend.webp" alt="" class="img-fluid rounded">
+                            <h2 class="my-2 gradient-text">Thor</h2>
+                        </div>
+                        <div class="box back rounded">
+                            <br><h2 class="gradient-text">Thor</h2><br>
+                            <h3 class="gradient-text">Description:</h3>
+                            <p class="m-3 gradient-text"><strong>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At quo hic et perferendis ex quis iure error, itaque possimus soluta eveniet sint beatae neque sed iste repellat est deleniti totam?
+                            </strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flipCard col-md-3">
+                    <div class="boxes">
+                        <div class="box front">
+                            <img src="../images/legend.webp" alt="" class="img-fluid rounded">
+                            <h2 class="my-2 gradient-text">Thor</h2>
+                        </div>
+                        <div class="box back rounded">
+                            <br><h2 class="gradient-text">Thor</h2><br>
+                            <h3 class="gradient-text">Description:</h3>
+                            <p class="m-3 gradient-text"><strong>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At quo hic et perferendis ex quis iure error, itaque possimus soluta eveniet sint beatae neque sed iste repellat est deleniti totam?
+                            </strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flipCard col-md-3">
+                    <div class="boxes">
+                        <div class="box front">
+                            <img src="../images/legend.webp" alt="" class="img-fluid rounded">
+                            <h2 class="my-2 gradient-text">Thor</h2>
+                        </div>
+                        <div class="box back rounded">
+                            <br><h2 class="gradient-text">Thor</h2><br>
+                            <h3 class="gradient-text">Description:</h3>
+                            <p class="m-3 gradient-text"><strong>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At quo hic et perferendis ex quis iure error, itaque possimus soluta eveniet sint beatae neque sed iste repellat est deleniti totam?
+                            </strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flipCard col-md-3">
+                    <div class="boxes">
+                        <div class="box front">
+                            <img src="../images/legend.webp" alt="" class="img-fluid rounded">
+                            <h2 class="my-2 gradient-text">Thor</h2>
+                        </div>
+                        <div class="box back rounded">
+                            <br><h2 class="gradient-text">Thor</h2><br>
+                            <h3 class="gradient-text">Description:</h3>
+                            <p class="m-3 gradient-text"><strong>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At quo hic et perferendis ex quis iure error, itaque possimus soluta eveniet sint beatae neque sed iste repellat est deleniti totam?
+                            </strong></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row m-5">
+
+                <div class="col-md-2"></div>
+
+                <div class="flipCard col-md-3">
+                    <div class="boxes">
+                        <div class="box front">
+                            <img src="../images/legend.webp" alt="" class="img-fluid rounded">
+                            <h2 class="my-2 gradient-text">Thor</h2>
+                        </div>
+                        <div class="box back rounded">
+                            <br><h2 class="gradient-text">Thor</h2><br>
+                            <h3 class="gradient-text">Description:</h3>
+                            <p class="m-3 gradient-text"><strong>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At quo hic et perferendis ex quis iure error, itaque possimus soluta eveniet sint beatae neque sed iste repellat est deleniti totam?
+                            </strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <div class="flipCard col-md-3">
+                    <div class="boxes">
+                        <div class="box front">
+                            <img src="../images/legend.webp" alt="" class="img-fluid rounded">
+                            <h2 class="my-2 gradient-text">Thor</h2>
+                        </div>
+                        <div class="box back rounded">
+                            <br><h2 class="gradient-text">Thor</h2><br>
+                            <h3 class="gradient-text">Description:</h3>
+                            <p class="m-3 gradient-text"><strong>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At quo hic et perferendis ex quis iure error, itaque possimus soluta eveniet sint beatae neque sed iste repellat est deleniti totam?
+                            </strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+            </div>
+
+        </section>
+        
+    </div>
+
+    
 
     <!-- FOOTER / CONTACT -->
     <footer class="page-footer indigo darken-3">

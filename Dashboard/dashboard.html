@@ -39,9 +39,12 @@
                 <li><a href="../Chat/chat.html" class="waves-effect waves-light px-5">Chat</a></li>
                 <li><a href="../Nutrition/nutrition.html" class="waves-effect waves-light px-5">Nutrition</a></li>
                 <li><a href="#" class="waves-effect waves-light px-5">Dashboard</a></li>
-                <li><a href="../Account/account.html" class="btn-floating gray z-depth-0">
-                    <i class="material-icons">person</i>
-                </a></li>
+                <li>
+                    <a href="../Account/account.html" class="btn-floating gray z-depth-0" id="account-pfp-link">
+                        <i class="material-icons" id="hide-if-pfp-exists-nav">person</i>
+                        <img src="" alt="Profile Picture" id="user-PFP-nav">
+                    </a> 
+                </li>
             </ul>
         </div>
     </nav>
@@ -49,8 +52,9 @@
     <!-- NavBar for medium and small screens -->
     <ul class="sidenav" id="mobile-links">
         <div class="container center py-5">
-            <a href="../Account/account.html" class="btn-floating btn-large gray z-depth-0">
-                <i class="large material-icons">person</i>
+            <a href="../Account/account.html" class="btn-floating btn-large gray z-depth-0" id="account-pfp-link-mobile">
+                <i class="large material-icons" id="hide-if-pfp-exists-nav-mobile">person</i>
+                <img src="" alt="Profile Picture" id="user-PFP-nav-mobile">
             </a>
         </div>
         <li><a href="../Home/home.html">Home</a></li>
@@ -389,7 +393,8 @@
                         <i class="material-icons center">camera</i>
                         <span class="mx-4">Start Meditation</span>
                         <i class="material-icons center">camera</i>
-                    </div>   
+                    </div>
+                    <audio id="breathSound" src="assets/gentle-ocean-waves.mp3" preload="auto"></audio>
                     <div class="card-content">
                         <div class="input">
                             <label for="breath-input">Select Time</label>
@@ -525,7 +530,7 @@
 
             let elems = document.querySelectorAll('select');
             let instances = M.FormSelect.init(elems);
-        });
+        }); 
 
         // Initialize the swipeable tabs
         // document.addEventListener('DOMContentLoaded', function() {

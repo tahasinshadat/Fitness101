@@ -25,4 +25,184 @@ nav a:hover {
     border-radius: 25px !important;
 }
 
+.account-image-pfp-nav {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.75rem;
+}
+
+.account-image-pfp-nav-mobile {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    scale: 2;
+}
+
 /* ^ IN EVERY CSSS ^ */
+
+
+/* BANNER */
+:root {
+    --degrees: 240deg;
+}
+
+#banner {
+    background: linear-gradient(var(--degrees), #2b2b2bef 47.5%, rgba(0, 0, 0, 0) 30%), url('../images/welcome.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+    width: 100vw;
+    color: white;
+}
+
+.title {
+    margin-top: 25vh;
+    font-size: 100px;
+}
+
+.banner {
+    width: 100vw;
+}
+
+.flex {
+    display: flex;
+}
+
+.banner div:first-child {
+    width: 55vw;
+}
+
+.description {
+    margin-top: 22vh;
+    width: 30vw;
+    margin-left: 140px;
+}
+
+.description h2 {
+    font-size: 40px;
+}
+
+.description p {
+    font-size: 16px;
+}
+
+@media (max-width: 1200px) {
+
+    .description {
+        margin-top: 20vh;
+        margin-left: 140px;
+    }
+
+    .title {
+        margin-top: 25vh;
+        font-size: 80px;
+    }
+
+}
+
+@media (max-width: 1100px) {
+
+    :root {
+        --degrees: 0deg;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    .title {
+        margin-top: 10vh;
+        font-size: 100px;
+    }
+    
+    .banner div:first-child {
+        width: 100vw;
+    }
+    
+    .description {
+        margin-top: 20vh;
+        width: 100vw;
+        text-align: center;
+        margin-left: 0px;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .title {
+        font-size: 70px;
+    }
+
+    .description h2 {
+        font-size: 30px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .title {
+        font-size: 70px;
+    }
+
+    .description p {
+        font-size: 14px;
+    }
+
+}
+
+/* Main Content */
+
+
+.flipCard {
+    perspective: 1000px;
+}
+
+.flipCard .boxes {
+    display: grid;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.flipCard .boxes .box {
+    background: black;
+    border-radius: 10px;
+    border: 5px solid black;
+    grid-row: 1/2;
+    grid-column: 1/2;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flipCard .boxes .box.front {
+    transform: rotateY(0deg);
+}
+
+.flipCard .boxes .box.back {
+    transform: rotateY(-180deg);
+}
+
+.flipCard:hover .boxes {
+    transform: rotateY(-180deg);
+}
+
+.gradient-text {
+    background: rgb(219,72,227);
+    background: linear-gradient(313deg, rgba(219,72,227,1) 0%, rgba(255,215,0,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* For Safari */
+}

@@ -1,4 +1,6 @@
-import { firebaseConfig } from '../secure.js';
+import { firebaseConfig } from '../backend/public/data.js';
+import { displayProfilePictureForNav } from '../pfpDisplay.js';
+import { options } from '../backend/public/data.js';
 
 // inititalize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -15,6 +17,22 @@ auth.onAuthStateChanged(user =>{
         user_ID = user.uid;
         copyFavoriteExercisesToCache(user_ID);
         // console.log(userFavoriteExercisesCache);
+
+        // Get the user's profile picture URL from Firestore
+        const userDocRef = usersCollection.doc(user_ID);
+        userDocRef.get().then(doc => {
+            if (doc.exists) {
+                const userData = doc.data();
+                const profilePictureUrl = userData.profilePicture;
+                displayProfilePictureForNav(profilePictureUrl);
+            } else {
+                // User doesn't have a profile picture yet
+                displayProfilePictureForNav(null);
+            }
+        }).catch(error => {
+            console.error('Error getting user data:', error);
+        });
+
     }
 });
 
@@ -37,14 +55,6 @@ function copyFavoriteExercisesToCache(userId) {
 
 
 let data;
-
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': 'f2374c1df8msh0628c9f48ee3710p12bd74jsn2e2411896308',
-        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
-    }
-};
 
 fetch('https://exercisedb.p.rapidapi.com/exercises', options)
     .then(response => response.json())

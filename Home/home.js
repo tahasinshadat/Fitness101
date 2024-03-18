@@ -1,4 +1,5 @@
-import { firebaseConfig } from '../secure.js';
+import { firebaseConfig } from '../backend/public/data.js';
+import { displayProfilePictureForNav } from '../pfpDisplay.js';
 
 // inititalize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -17,6 +18,10 @@ auth.onAuthStateChanged(user =>{
             if (doc.exists) {
 
                 const userData = doc.data();
+
+                // Show User PFP if they have one
+                const profilePictureUrl = userData.profilePicture;
+                displayProfilePictureForNav(profilePictureUrl);
 
                 const today = new Date();
                 const year = today.getFullYear();
@@ -65,7 +70,12 @@ auth.onAuthStateChanged(user =>{
                 }
                 
             } else {
+
+                // User doesn't have a profile picture yet
+                displayProfilePictureForNav(null);
+
                 console.error('User document not found.');
+
             }
         }).catch((error) => {
             console.error("Error getting username:", error);

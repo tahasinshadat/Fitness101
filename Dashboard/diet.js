@@ -1,3 +1,5 @@
+import { getFoodAPI } from "../backend/public/data.js";
+
 let foodapi;
 export function displayLikedFoods(usersCollection, userId, userFavoriteFoodCache, likedFoodDisplayContainer) {
 
@@ -6,7 +8,7 @@ export function displayLikedFoods(usersCollection, userId, userFavoriteFoodCache
         if (Object.keys(userFavorites.IDS).length === 0) likedFoodDisplayContainer.innerHTML = '<p>No Liked Foods</p>';
         else {
             for (let i = 0; i < userFavorites.NAMES.length; i++) {
-                foodapi = `https://api.spoonacular.com/recipes/complexSearch?query=%22${userFavorites.NAMES[i]}%22&addRecipeInformation=true&apiKey=a834f2a6b58545049b02148bee1c978e`;
+                foodapi = getFoodAPI(userFavorites.NAMES[i]);
                 renderLikedFoods(foodapi, likedFoodDisplayContainer, userFavorites.IDS, userId, usersCollection);
             }
         }
@@ -24,7 +26,7 @@ export function displayLikedFoods(usersCollection, userId, userFavoriteFoodCache
                     likedFoodDisplayContainer.innerHTML = '<p>No Liked Foods</p>';
                 } else {
                     for (let i = 0; i < userFavorites.NAMES; i++) {
-                        foodapi = `https://api.spoonacular.com/recipes/complexSearch?query=%22${userFavorites.NAMES[i]}%22&addRecipeInformation=true&apiKey=a834f2a6b58545049b02148bee1c978e`;
+                        foodapi = getFoodAPI(userFavorites.NAMES[i]);
                         renderLikedFoods(foodapi, likedFoodDisplayContainer, userFavorites.IDS, userId, usersCollection);
                     }
                 }

@@ -72,7 +72,7 @@ signUpBtn.onclick = (event) => {
             })
             .then(() => {
                 // now redirect
-                window.setTimeout( () => {window.location.href = "index.html";}, 3000);
+                window.setTimeout( () => {window.location.href = "index.html";}, 1500);
             })
             .catch((error) => {
                 console.error("Error storing username:", error);
@@ -129,7 +129,7 @@ loginBtn.onclick = (event) => {
             } else {
                 console.log("Username not found");
             }
-            window.setTimeout( () => {window.location.href = "../Home/home.html";}, 3000);
+            window.setTimeout( () => {window.location.href = "../Home/home.html";}, 1500);
         })
         .catch((error) => {
             // Handle error
@@ -167,4 +167,3 @@ function getUsernameFromFirestore(uid) {
             return null;
         });
 }
-

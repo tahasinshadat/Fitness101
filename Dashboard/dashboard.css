@@ -25,6 +25,29 @@ nav a:hover {
     border-radius: 25px !important;
 }
 
+.account-image-pfp-nav {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.75rem;
+}
+
+.account-image-pfp-nav-mobile {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    scale: 2;
+}
+
 :root {
     --Overview-Card-Height: 350px;
     --Overview-General-Card-Height: 900px;
@@ -60,7 +83,7 @@ nav a:hover {
 .overview-charts {
     width: 100%;
     height: calc(var(--Overview-Card-Height) - 65px) !important;
-    margin: 0px;
+    margin: auto;
     padding: 0px;
 }
 
@@ -68,6 +91,57 @@ nav a:hover {
     height: calc(var(--Overview-General-Card-Height) - 65px) !important;
 }
 
+@media (max-width: 1400px) {
+    :root {
+        --Overview-General-Card-Height: 800px;
+    }
+    .overview-charts {
+        max-height: 80%;
+    }
+}
+
+@media (max-width: 1200px) {
+    :root {
+        --Overview-General-Card-Height: 650px;
+        --Overview-Card-Height: 300px;
+    }
+}
+
+@media (max-width: 1000px) {
+    :root {
+        --Overview-General-Card-Height: 550px;
+        --Overview-Card-Height: 250px;
+    }
+    .overview-charts {
+        max-height: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    :root {
+        --Overview-General-Card-Height: 425px;
+    }
+}
+
+@media (max-width: 767px) {
+    :root {
+        --Overview-Card-Height: 350px;
+    }
+}
+
+@media (max-width: 550px) {
+    :root {
+        --Overview-Card-Height: 300px;
+        --Overview-General-Card-Height: 300px;
+    }
+}
+
+@media (max-width: 450px) {
+    :root {
+        --Overview-Card-Height: 250px;
+        --Overview-General-Card-Height: 250px;
+    }
+}
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /*                                                       FITNESS                                                     */

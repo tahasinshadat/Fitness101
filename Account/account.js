@@ -1,4 +1,4 @@
-import { displayProfilePicture } from '../pfpDisplay.js';
+import { displayProfilePicture, displayProfilePictureForNav } from '../pfpDisplay.js';
 import { firebaseConfig } from '../secure.js';
 
 // inititalize Firebase
@@ -33,9 +33,11 @@ auth.onAuthStateChanged(user =>{
                 const userData = doc.data();
                 const profilePictureUrl = userData.profilePicture;
                 displayProfilePicture(profilePictureUrl);
+                displayProfilePictureForNav(profilePictureUrl);
             } else {
                 // User doesn't have a profile picture yet
                 displayProfilePicture(null);
+                displayProfilePictureForNav(null);
             }
         }).catch(error => {
             console.error('Error getting user data:', error);
@@ -100,6 +102,8 @@ document.getElementById('profile-picture-input').addEventListener('change', func
                     console.log('Profile picture URL updated in Firestore.');
                     // Display the new profile picture.
                     displayProfilePicture(url);
+                    displayProfilePictureForNav(url);
+                    
                 }).catch(error => {
                     console.error('Error updating profile picture URL in Firestore:', error);
                 });

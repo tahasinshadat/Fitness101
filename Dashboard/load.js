@@ -9,7 +9,8 @@ export function displayLoadingScreen() {
 
     // Create the loading text element
     const loadingText = document.createElement('h3');
-    loadingText.innerHTML = "> Loading..."
+    loadingText.innerHTML = "&nbsp&nbspLoading..."
+    loadingText.className = 'text-white';
 
     // Create the loading spinner element
     const loadingSpinner = document.createElement('div');

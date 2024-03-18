@@ -1,4 +1,6 @@
-import { firebaseConfig } from '../secure.js';
+import { firebaseConfig } from '../backend/public/data.js';
+import { displayProfilePictureForNav } from '../pfpDisplay.js';
+import { getFoodAPI } from '../backend/public/data.js';
 
 // inititalize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -14,7 +16,23 @@ auth.onAuthStateChanged(user =>{
         console.log('user logged in');
         user_ID = user.uid;
         copyFavoriteFoodToCache(user_ID);
-        console.log(userFavoriteFoodCache);
+        // console.log(userFavoriteFoodCache);
+
+        // Get the user's profile picture URL from Firestore
+        const userDocRef = usersCollection.doc(user_ID);
+        userDocRef.get().then(doc => {
+            if (doc.exists) {
+                const userData = doc.data();
+                const profilePictureUrl = userData.profilePicture;
+                displayProfilePictureForNav(profilePictureUrl);
+            } else {
+                // User doesn't have a profile picture yet
+                displayProfilePictureForNav(null);
+            }
+        }).catch(error => {
+            console.error('Error getting user data:', error);
+        });
+
     }
 });
 
@@ -58,7 +76,7 @@ foodSubmitBtn.onclick = (event) => {
 	userInputVal = user_input.value
 	// console.log(userInputVal)
 
-	foodapi = `https://api.spoonacular.com/recipes/complexSearch?query=%22${userInputVal}%22&addRecipeInformation=true&apiKey=a834f2a6b58545049b02148bee1c978e`
+	foodapi = getFoodAPI(userInputVal);
 
 	fetch(foodapi)
 		.then(function(response) {

@@ -1,5 +1,5 @@
 import { firebaseConfig } from '../secure.js';
-
+import { displayProfilePictureForNav } from '../pfpDisplay.js';
 
 
 // inititalize Firebase
@@ -347,5 +347,20 @@ auth.onAuthStateChanged(user =>{
                     // console.log('Username not found.');
                 }
             });
+
+        // Get the user's profile picture URL from Firestore
+        const userDocRef = usersCollection.doc(userId);
+        userDocRef.get().then(doc => {
+            if (doc.exists) {
+                const userData = doc.data();
+                const profilePictureUrl = userData.profilePicture;
+                displayProfilePictureForNav(profilePictureUrl);
+            } else {
+                // User doesn't have a profile picture yet
+                displayProfilePictureForNav(null);
+            }
+        }).catch(error => {
+            console.error('Error getting user data:', error);
+        });
     }
 });

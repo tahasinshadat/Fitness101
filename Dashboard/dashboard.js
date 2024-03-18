@@ -1,5 +1,6 @@
 // Import code from other files
-import { firebaseConfig } from '../secure.js';
+import { firebaseConfig } from '../backend/public/data.js';
+import { displayProfilePictureForNav } from '../pfpDisplay.js';
 import { displayLikedExercises } from '../Dashboard/exercise.js';
 
 import { 
@@ -41,6 +42,21 @@ auth.onAuthStateChanged(async user =>{
         console.log('user logged in');
         user_ID = user.uid;
 
+        // Get the user's profile picture URL from Firestore
+        const userDocRef = usersCollection.doc(user_ID);
+        userDocRef.get().then(doc => {
+            if (doc.exists) {
+                const userData = doc.data();
+                const profilePictureUrl = userData.profilePicture;
+                displayProfilePictureForNav(profilePictureUrl);
+            } else {
+                // User doesn't have a profile picture yet
+                displayProfilePictureForNav(null);
+            }
+        }).catch(error => {
+            console.error('Error getting user data:', error);
+        });
+
         updateFoodGraphs();
         updateAllCharts();
         
@@ -49,8 +65,8 @@ auth.onAuthStateChanged(async user =>{
         // console.log(userFavoriteExercisesCache);
         // console.log(userFavoriteFoodCache);
         setTimeout( () => {
-            // displayLikedExercises(usersCollection, user_ID, userFavoriteExercisesCache, likedExercisesDisplayContainer);
-            // displayLikedFoods(usersCollection, user_ID, userFavoriteFoodCache, likedFoodDisplayContainer);
+            displayLikedExercises(usersCollection, user_ID, userFavoriteExercisesCache, likedExercisesDisplayContainer);
+            displayLikedFoods(usersCollection, user_ID, userFavoriteFoodCache, likedFoodDisplayContainer);
         }, 1000);
     }
 });
@@ -342,6 +358,7 @@ const numberOfBreaths = document.getElementById("breath-input");
 const start = document.querySelector(".start");
 const instructions = document.querySelector(".instructions");
 const breathsText = document.getElementById("breath-text");
+const breathSound = document.getElementById("breathSound");
 let breathsLeft = 5;
 
 // Update Breath Counter based on selection
@@ -380,6 +397,7 @@ function meditate() {
             start.classList.remove('disabled');
             breathsLeft = numberOfBreaths.value;
             breathsText.innerText = breathsLeft;
+            breathSound.pause();
             return;
         }
         growCircle();
@@ -393,11 +411,25 @@ start.addEventListener('click', () => {
     setTimeout(() => {
         instructions.innerText = 'Breathing is about to begin...';
         setTimeout(() => {
+
+            if (!breathSound.paused) {
+                breathSound.pause();
+                breathSound.currentTime = 0;
+            }
+
+            breathSound.play();
+
             growCircle();
             meditate();
+            // If the sound duration is shorter than the breathing session duration, restart the sound
+            setTimeout(() => {
+                if (breathSound.currentTime >= breathSound.duration) {
+                    breathSound.currentTime = 0;
+                    breathSound.play();
+                }
+            }, breathSound.duration * 1000);
         }, 2000)
     }, 3000);
-    
 })
 
 

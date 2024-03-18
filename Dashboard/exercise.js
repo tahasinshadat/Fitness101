@@ -1,13 +1,7 @@
+import { options } from "../backend/public/data.js";
 // Function to display exercises with the heart icon
 export function displayLikedExercises(usersCollection, userId, userFavoriteExercisesCache, likedExercisesDisplayContainer) {
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'f2374c1df8msh0628c9f48ee3710p12bd74jsn2e2411896308',
-            'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
-        }
-    };
-
+    
     fetch('https://exercisedb.p.rapidapi.com/exercises', options)
         .then(response => response.json())
         .then(function(response) {
