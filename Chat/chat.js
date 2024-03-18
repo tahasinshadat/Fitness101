@@ -1,4 +1,4 @@
-import { firebaseConfig } from '../secure.js';
+import { firebaseConfig } from '../backend/public/data.js';
 import { displayProfilePictureForNav } from '../pfpDisplay.js';
 
 
