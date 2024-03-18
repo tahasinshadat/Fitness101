@@ -1,4 +1,4 @@
-import { firebaseConfig } from '../secure.js';
+import { firebaseConfig } from '../backend/public/data.js';
 
 // inititalize Firebase
 firebase.initializeApp(firebaseConfig);
